@@ -7,13 +7,13 @@ public class maxSubSum {
 			a[i] = (int) (Math.random()*100);
 		}
 		/*Long brfore = System.currentTimeMillis();
-		maxSubSum1(a);
-		Long after = System.currentTimeMillis();
-		System.out.println(after-brfore);*/
-		/*Long brfore = System.currentTimeMillis();
 		System.out.println(maxSubSum2(a));
 		Long after = System.currentTimeMillis();
 		System.out.println(after-brfore);*/
+		Long brfore2 = System.currentTimeMillis();
+		System.out.println(maxSubSum4(a));
+		Long after2 = System.currentTimeMillis();
+		System.out.println(after2-brfore2);
 		Long brfore1 = System.currentTimeMillis();
 		System.out.println(maxSubSum3(a));
 		Long after1 = System.currentTimeMillis();
@@ -95,5 +95,19 @@ public class maxSubSum {
 	public static int max3(int a,int b,int c) {
 		int d = b>=c?b:c;
 		return a>=d?a:d;
+	}
+	
+	public static int maxSubSum4(int[] a) {
+		int thisSum = 0,maxSum = 0;
+		for (int i = 0; i < a.length; i++) {
+			thisSum += a[i];
+			
+			if (thisSum > maxSum) {
+				maxSum = thisSum;
+			}else if (thisSum < 0) {
+				thisSum = 0;
+			}
+		}
+		return maxSum;
 	}
 }
