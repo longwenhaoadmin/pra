@@ -2,22 +2,26 @@ package pra;
 
 public class maxSubSum {
 	public static void main(String[] args) {
-		int[] a = new int[1000000];
-		for (int i = 0; i < 1000000; i++) {
+		int[] a = new int[100000000];
+		for (int i = 0; i < 100000000; i++) {
 			a[i] = (int) (Math.random()*100);
 		}
 		/*Long brfore = System.currentTimeMillis();
 		maxSubSum1(a);
 		Long after = System.currentTimeMillis();
 		System.out.println(after-brfore);*/
-		/*brfore = System.currentTimeMillis();
-		maxSubSum2(a);
-		after = System.currentTimeMillis();
+		/*Long brfore = System.currentTimeMillis();
+		System.out.println(maxSubSum2(a));
+		Long after = System.currentTimeMillis();
 		System.out.println(after-brfore);*/
 		Long brfore1 = System.currentTimeMillis();
-		maxSubSumRec(a,0,a.length-1);
+		System.out.println(maxSubSum3(a));
 		Long after1 = System.currentTimeMillis();
 		System.out.println(after1-brfore1);
+	}
+	
+	public static int maxSubSum3(int[] a) {
+		return maxSubSumRec(a,0,a.length-1);
 	}
 	
 	public static int maxSubSum1(int[] a) {
@@ -78,7 +82,7 @@ public class maxSubSum {
 		}
 		
 		int maxRightBorderSum = 0,RightBorderSum = 0;
-		for (int i = center=1; i <= right; i++) {
+		for (int i = center+1; i <= right; i++) {
 			RightBorderSum += a[i];
 			if (RightBorderSum > maxRightBorderSum) {
 				maxRightBorderSum = RightBorderSum;
