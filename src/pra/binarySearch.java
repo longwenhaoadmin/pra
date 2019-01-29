@@ -21,7 +21,7 @@ public class binarySearch {
 		return NOT_FOUND;
 	}
 	
-	public static Long gcd(Long m,Long n) {
+	public static long gcd(long m,Long n) {
 		
 		while (n!=0) {
 			Long rem = m%n;
