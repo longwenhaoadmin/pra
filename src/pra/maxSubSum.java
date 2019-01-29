@@ -4,7 +4,11 @@ public class maxSubSum {
 	public static void main(String[] args) {
 		int[] a = new int[100000000];
 		for (int i = 0; i < 100000000; i++) {
-			a[i] = (int) (Math.random()*100);
+			if (Math.random()>=0.5) {
+				a[i] = (int) (Math.random()*100);
+			}else {
+				a[i] = -(int) (Math.random()*100);
+			}
 		}
 		/*Long brfore = System.currentTimeMillis();
 		System.out.println(maxSubSum2(a));
